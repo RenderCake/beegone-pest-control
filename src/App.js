@@ -73,24 +73,24 @@ const AppStyles = styled.div`
     max-width: 100%;
   }
 `
+const isBrowser = typeof window !== 'undefined'
 
-const App = () => {
-  const isMobile = window.innerWidth < 480
-  return (
-    <Router>
-      <AppStyles>
-        <header>
-          {isMobile ? (
+const App = () => (
+  <Router>
+    <AppStyles>
+      <header>
+        {!isBrowser ? (
+            undefined
+          ) : window.innerWidth < 480 ? (
             <MobileNav navList={['Services', 'Testimonials', 'Why Us', 'Guarantee']} />
           ) : (
             <Nav navList={['Services', 'Testimonials', 'Why Us', 'Guarantee']} />
           )}
-        </header>
+      </header>
 
-        <Routes />
-      </AppStyles>
-    </Router>
-  )
-}
+      <Routes />
+    </AppStyles>
+  </Router>
+)
 
 export default hot(module)(App)
