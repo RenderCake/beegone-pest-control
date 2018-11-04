@@ -83,6 +83,7 @@ export default () => (
                   headline={data.ctaHeadline}
                   copy={data.ctaSubHeadline}
                   buttonLabel={data.cta.fields.buttonLabel}
+                  link={data.cta.fields.link}
                   phoneNumber={phoneNumber}
                 />
               </section>

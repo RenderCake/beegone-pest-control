@@ -9,16 +9,18 @@ CTA.propTypes = {
   headline: string.isRequired,
   copy: string.isRequired,
   buttonLabel: string.isRequired,
+  link: string.isRequired,
   phoneNumber: string.isRequired,
 }
 export default function CTA(props) {
   const {
-    headline, copy, buttonLabel, phoneNumber,
+    headline, copy, buttonLabel, link, phoneNumber,
   } = props
   return (
     <ContentContainer css={{ textAlign: 'center' }}>
       <SectionHeading headline={headline} copy={copy} />
       <ButtonLink
+        href={link}
         secondary
         css={{
           [mq[1]]: {
