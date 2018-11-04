@@ -14,10 +14,10 @@ export default function Nav(props) {
     <nav
       css={{
         padding: 0,
-        height: 70,
+        height: 90,
         backgroundColor: '#fff',
         top: 0,
-        position: 'absolute',
+        position: 'fixed',
         borderBottom: 'none',
         zIndex: 1000,
         width: '100%',
