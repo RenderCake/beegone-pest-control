@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import styled from 'react-emotion'
 import { FaQuoteLeft, FaQuoteRight } from 'react-icons/fa'
+import { array, string } from 'prop-types'
 
 import ContentContainer from './ContentContainer'
 import SectionHeading from './SectionHeading'
@@ -17,6 +18,12 @@ const Card = styled('div')({
     margin: '2rem',
   },
 })
+
+Testimonials.propTypes = {
+  headline: string.isRequired,
+  copy: string.isRequired,
+  testimonialList: array.isRequired,
+}
 export default function Testimonials(props) {
   const { headline, copy, testimonialList } = props
   return (
@@ -32,7 +39,7 @@ export default function Testimonials(props) {
               alignItems: 'center',
             }}
           >
-            {testimonialList.map(({ copy, author }) => (
+            {testimonialList.map(({ fields: { copy, author } }) => (
               <li key={author} css={{ flexBasis: '24rem' }}>
                 <Card>
                   <div

@@ -80,12 +80,12 @@ const App = () => (
     <AppStyles>
       <header>
         {!isBrowser ? (
-            undefined
-          ) : window.innerWidth < 480 ? (
-            <MobileNav navList={['Services', 'Testimonials', 'Why Us', 'Guarantee']} />
-          ) : (
-            <Nav navList={['Services', 'Testimonials', 'Why Us', 'Guarantee']} />
-          )}
+          undefined
+        ) : window.innerWidth < 480 ? (
+          <MobileNav navList={['Services', 'Testimonials', 'Why Us', 'Guarantee']} />
+        ) : (
+          <Nav navList={['Services', 'Testimonials', 'Why Us', 'Guarantee']} />
+        )}
       </header>
 
       <Routes />

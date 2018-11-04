@@ -39,7 +39,7 @@ export default function Nav(props) {
           }}
         >
           {navList.map(navItem => (
-            <li kay={navItem} css={{ padding: '1rem', lineHeight: '1.2' }}>
+            <li key={navItem} css={{ padding: '1rem', lineHeight: '1.2' }}>
               <a
                 href={`#${navItem.toLowerCase().replace(/\s/g, '')}`}
                 css={{

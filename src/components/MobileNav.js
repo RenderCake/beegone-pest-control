@@ -70,7 +70,7 @@ class MobileNav extends Component {
             (props => (
               <FlyOutMenu style={props}>
                 <MenuBar>
-                  <BeeLogoSVG css={{ width: 35 }} />
+                  <BeeLogoSVG css={{ width: 35, '.st0': { fill: '#000' } }} />
                   <FaTimes onClick={this.handleToggle} css={{ fontSize: '2rem' }} />
                 </MenuBar>
                 <ul css={{ marginBottom: '5rem' }}>

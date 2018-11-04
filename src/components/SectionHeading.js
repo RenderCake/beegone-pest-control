@@ -1,5 +1,6 @@
 import React from 'react'
 import { string } from 'prop-types'
+import ReactMarkdown from 'react-markdown'
 
 import { mq } from './theme'
 
@@ -33,7 +34,7 @@ export default function SectionHeading(props) {
       >
         {headline}
       </h2>
-      <p css={{ [mq[3]]: { fontSize: '1.25rem' } }}>{copy}</p>
+      <ReactMarkdown source={copy} css={{ [mq[3]]: { fontSize: '1.25rem' } }} />
     </header>
   )
 }

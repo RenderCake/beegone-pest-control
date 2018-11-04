@@ -1,9 +1,16 @@
 import React from 'react'
+import { string } from 'prop-types'
 import ContentContainer from './ContentContainer'
 import SectionHeading from './SectionHeading'
 import { ButtonLink } from './Button'
 import { mq } from './theme'
 
+CTA.propTypes = {
+  headline: string.isRequired,
+  copy: string.isRequired,
+  buttonLabel: string.isRequired,
+  phoneNumber: string.isRequired,
+}
 export default function CTA(props) {
   const {
     headline, copy, buttonLabel, phoneNumber,

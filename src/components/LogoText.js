@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react'
 import styled from 'react-emotion'
+import { string } from 'prop-types'
 
 import ContentContainer from './ContentContainer'
 import SectionHeading from './SectionHeading'
@@ -16,6 +17,12 @@ const GridContainer = styled('div')({
     maxWidth: '50rem',
   },
 })
+
+LogoText.propTypes = {
+  headline: string.isRequired,
+  copy: string.isRequired,
+  bodyCopy: string.isRequired,
+}
 export default function LogoText(props) {
   const { headline, copy, bodyCopy } = props
   return (

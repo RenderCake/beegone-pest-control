@@ -4,18 +4,20 @@ import { ButtonLink } from './Button'
 import { mq } from './theme'
 
 Hero.propTypes = {
-  heroTitle: string.isRequired,
-  heroBody: string.isRequired,
+  heroHeading: string.isRequired,
+  heroCopy: string.isRequired,
   heroButtonLabel: string.isRequired,
+  link: string.isRequired,
   phoneNumber: string.isRequired,
   heroIllustration: string.isRequired,
   heroIllustrationAlt: string.isRequired,
 }
 export default function Hero(props) {
   const {
-    heroTitle,
-    heroBody,
+    heroHeading,
+    heroCopy,
     heroButtonLabel,
+    link,
     phoneNumber,
     heroIllustration,
     heroIllustrationAlt,
@@ -60,7 +62,7 @@ export default function Hero(props) {
             },
           }}
         >
-          {heroTitle}
+          {heroHeading}
         </h1>
         <p
           css={{
@@ -72,10 +74,11 @@ export default function Hero(props) {
             },
           }}
         >
-          {heroBody}
+          {heroCopy}
         </p>
         <div css={{ display: 'inline-block', width: '100%' }}>
           <ButtonLink
+            href={link}
             css={{
               marginTop: '1rem',
               [mq[1]]: {
