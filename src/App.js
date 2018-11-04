@@ -1,5 +1,5 @@
 import React from 'react'
-import { Router, Link } from 'react-static'
+import { Router, SiteData } from 'react-static'
 import styled, { injectGlobal } from 'react-emotion'
 import { hot } from 'react-hot-loader'
 //
@@ -76,21 +76,31 @@ const AppStyles = styled.div`
 const isBrowser = typeof window !== 'undefined'
 
 const App = () => (
-  <Router>
-    <AppStyles>
-      <header>
-        {!isBrowser ? (
-          undefined
-        ) : window.innerWidth < 480 ? (
-          <MobileNav navList={['Services', 'Testimonials', 'Why Us', 'Guarantee']} />
-        ) : (
-          <Nav navList={['Services', 'Testimonials', 'Why Us', 'Guarantee']} />
-        )}
-      </header>
+  <SiteData
+    render={({ siteData: { navCtaLink } }) => (
+      <Router>
+        <AppStyles>
+          <header>
+            {!isBrowser ? (
+              undefined
+            ) : window.innerWidth < 480 ? (
+              <MobileNav
+                navList={['Services', 'Testimonials', 'Why Us', 'Guarantee']}
+                navCtaLink={navCtaLink}
+              />
+            ) : (
+              <Nav
+                navList={['Services', 'Testimonials', 'Why Us', 'Guarantee']}
+                navCtaLink={navCtaLink}
+              />
+            )}
+          </header>
 
-      <Routes />
-    </AppStyles>
-  </Router>
+          <Routes />
+        </AppStyles>
+      </Router>
+    )}
+  />
 )
 
 export default hot(module)(App)

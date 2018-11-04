@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { FaTimes, FaBars } from 'react-icons/fa'
-import { array } from 'prop-types'
+import { array, string } from 'prop-types'
 import { Transition } from 'react-spring'
 import styled, { css } from 'react-emotion'
 import BeeLogoSVG from './BeeLogoSVG'
@@ -30,6 +30,7 @@ const MenuBar = styled.div`
 class MobileNav extends Component {
   static propTypes = {
     navList: array.isRequired,
+    navCtaLink: string.isRequired,
   }
   state = {
     toggle: false,
@@ -39,7 +40,7 @@ class MobileNav extends Component {
     this.setState(prevState => ({ toggle: !prevState.toggle }))
   }
   render() {
-    const { navList } = this.props
+    const { navList, navCtaLink } = this.props
     const { toggle } = this.state
     const { handleToggle } = this
     return (
@@ -88,7 +89,9 @@ class MobileNav extends Component {
                     </li>
                   ))}
                 </ul>
-                <ButtonLink secondary>Book Now</ButtonLink>
+                <ButtonLink href={navCtaLink} secondary>
+                  Book Now
+                </ButtonLink>
               </FlyOutMenu>
             ))
           }

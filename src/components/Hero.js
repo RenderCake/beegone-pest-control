@@ -58,7 +58,7 @@ export default function Hero(props) {
           css={{
             marginBottom: '2rem',
             [mq[3]]: {
-              fontSize: '4.8rem',
+              fontSize: '4rem',
             },
           }}
         >

@@ -19,4 +19,11 @@ export const ButtonLink = styled.a`
   text-decoration: none;
   padding: 19px 40px 20px;
   display: block;
+  transition: all 420ms;
+  &:hover {
+    box-shadow: ${props =>
+    (props.secondary
+      ? 'inset 0 0 0 2px #FFCC00'
+      : '0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)')};
+  }
 `

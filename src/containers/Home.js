@@ -12,19 +12,23 @@ import Footer from '../components/Footer'
 import { primaryColor, mq } from '../components/theme'
 
 const footerData = {
-  phoneNumber: '801-823-2463',
-  email: 'taft@beegonepestcontrol.com',
   contactCopy: 'Need Help?',
   SocialCopy: 'Follow us on social media',
-  facebookLink: 'https://www.facebook.com/BeeGonePest/',
-  twitterLink: 'https://www.facebook.com/BeeGonePest/',
-  linkedinLink: 'https://www.facebook.com/BeeGonePest/',
-  instagramLink: 'https://www.facebook.com/BeeGonePest/',
 }
 
 export default () => (
   <SiteData
-    render={({ siteData: { siteTitle, phoneNumber } }) => (
+    render={({
+      siteData: {
+        siteTitle,
+        phoneNumber,
+        email,
+        facebookLink,
+        twitterLink,
+        linkedInLink,
+        instagramLink,
+      },
+    }) => (
       <RouteData
         render={({ homePage: { fields: data } }) => (
           <Fragment>
@@ -84,9 +88,19 @@ export default () => (
               </section>
             </main>
 
-            <Footer navList={['Services', 'Testimonials', 'Why Us']} {...footerData} />
+            <Footer
+              email={email}
+              phoneNumber={phoneNumber}
+              ctaLink={data.cta.fields.link}
+              facebookLink={facebookLink}
+              twitterLink={twitterLink}
+              linkedinLink={linkedInLink}
+              instagramLink={instagramLink}
+              navList={['Services', 'Testimonials', 'Why Us']}
+              {...footerData}
+            />
           </Fragment>
-          )}
+        )}
       />
     )}
   />

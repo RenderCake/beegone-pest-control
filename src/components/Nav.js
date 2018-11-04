@@ -1,14 +1,15 @@
 import React from 'react'
-import { array } from 'prop-types'
+import { array, string } from 'prop-types'
 import LogoSVG from './LogoSVG'
 import { ButtonLink } from './Button'
 import ContentContainer from './ContentContainer'
 
 Nav.propTypes = {
   navList: array.isRequired,
+  navCtaLink: string.isRequired,
 }
 export default function Nav(props) {
-  const { navList } = props
+  const { navList, navCtaLink } = props
   return (
     <nav
       css={{
@@ -58,6 +59,7 @@ export default function Nav(props) {
           ))}
           <li css={{ marginLeft: 'auto' }}>
             <ButtonLink
+              href={navCtaLink}
               css={{
                 backgroundColor: '#fff',
                 border: '2px solid #a8a9b0',

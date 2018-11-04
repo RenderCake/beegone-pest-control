@@ -32,18 +32,20 @@ const SocialListItem = styled('li')({
 
 Footer.propTypes = {
   navList: array.isRequired,
+  ctaLink: string.isRequired,
   phoneNumber: string.isRequired,
   email: string.isRequired,
   contactCopy: string.isRequired,
   SocialCopy: string.isRequired,
-  facebookLink: string.isRequired,
-  twitterLink: string.isRequired,
-  linkedinLink: string.isRequired,
-  instagramLink: string.isRequired,
+  facebookLink: string,
+  twitterLink: string,
+  linkedinLink: string,
+  instagramLink: string,
 }
 export default function Footer(props) {
   const {
     navList,
+    ctaLink,
     phoneNumber,
     email,
     contactCopy,
@@ -101,11 +103,13 @@ export default function Footer(props) {
               <ul css={{ display: 'flex', flexWrap: 'wrap' }}>
                 {navList.map(navItem => (
                   <li key={navItem} css={{ flex: '1 1 100%' }}>
-                    <UnderlinedAnchor>{navItem}</UnderlinedAnchor>
+                    <UnderlinedAnchor href={`#${navItem.toLowerCase().replace(/\s/g, '')}`}>
+                      {navItem}
+                    </UnderlinedAnchor>
                   </li>
                 ))}
                 <li css={{ flex: '1 1 50%' }}>
-                  <UnderlinedAnchor>Buy Now</UnderlinedAnchor>
+                  <UnderlinedAnchor href={ctaLink}>Buy Now</UnderlinedAnchor>
                 </li>
               </ul>
             </nav>
@@ -143,26 +147,34 @@ export default function Footer(props) {
             <div>
               <p css={{ textAlign: 'center', marginBottom: '1rem' }}>{SocialCopy}</p>
               <ul css={{ display: 'flex', justifyContent: 'center' }}>
-                <SocialListItem>
-                  <a href={facebookLink}>
-                    <FaFacebookSquare />
-                  </a>
-                </SocialListItem>
-                <SocialListItem>
-                  <a href={twitterLink}>
-                    <FaTwitterSquare />
-                  </a>
-                </SocialListItem>
-                <SocialListItem>
-                  <a href={linkedinLink}>
-                    <FaLinkedin />
-                  </a>
-                </SocialListItem>
-                <SocialListItem>
-                  <a href={instagramLink}>
-                    <FaInstagram />
-                  </a>
-                </SocialListItem>
+                {facebookLink && (
+                  <SocialListItem>
+                    <a href={facebookLink}>
+                      <FaFacebookSquare />
+                    </a>
+                  </SocialListItem>
+                )}
+                {twitterLink && (
+                  <SocialListItem>
+                    <a href={twitterLink}>
+                      <FaTwitterSquare />
+                    </a>
+                  </SocialListItem>
+                )}
+                {linkedinLink && (
+                  <SocialListItem>
+                    <a href={linkedinLink}>
+                      <FaLinkedin />
+                    </a>
+                  </SocialListItem>
+                )}
+                {instagramLink && (
+                  <SocialListItem>
+                    <a href={instagramLink}>
+                      <FaInstagram />
+                    </a>
+                  </SocialListItem>
+                )}
               </ul>
             </div>
           </div>
@@ -204,7 +216,10 @@ export default function Footer(props) {
             <span>
               <FaHeart css={{ margin: '0 .5rem -.2rem' }} />
             </span>
-            by RenderCake
+            by{' '}
+            <a css={{ fontWeight: 'bold' }} href="https://rendercake.com">
+              RenderCake
+            </a>
           </p>
         </ContentContainer>
       </div>
