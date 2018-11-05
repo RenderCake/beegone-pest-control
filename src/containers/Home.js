@@ -43,6 +43,7 @@ export default () => (
                   heroButtonLabel={data.heroCta.fields.buttonLabel}
                   link={data.heroCta.fields.link}
                   phoneNumber={data.phoneNumber}
+                  heroIllustration={data.heroImage.fields.file.url}
                 />
               </section>
               <section id="services">

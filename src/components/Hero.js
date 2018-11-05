@@ -10,17 +10,10 @@ Hero.propTypes = {
   link: string.isRequired,
   phoneNumber: string.isRequired,
   heroIllustration: string.isRequired,
-  heroIllustrationAlt: string.isRequired,
 }
 export default function Hero(props) {
   const {
-    heroHeading,
-    heroCopy,
-    heroButtonLabel,
-    link,
-    phoneNumber,
-    heroIllustration,
-    heroIllustrationAlt,
+    heroHeading, heroCopy, heroButtonLabel, link, phoneNumber, heroIllustration,
   } = props
   return (
     <div
@@ -106,8 +99,8 @@ export default function Hero(props) {
           </p>
         </div>
       </header>
-      <div>
-        <img src={heroIllustration} alt={heroIllustrationAlt} />
+      <div css={{ display: 'grid', alignItems: 'center', justifyContent: 'center' }}>
+        <img src={heroIllustration} alt="hero" />
       </div>
     </div>
   )
