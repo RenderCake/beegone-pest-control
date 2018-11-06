@@ -109,7 +109,9 @@ export default function Footer(props) {
                   </li>
                 ))}
                 <li css={{ flex: '1 1 50%' }}>
-                  <UnderlinedAnchor href={ctaLink}>Buy Now</UnderlinedAnchor>
+                  <UnderlinedAnchor className="footerCta" href={ctaLink}>
+                    Buy Now
+                  </UnderlinedAnchor>
                 </li>
               </ul>
             </nav>

@@ -59,6 +59,7 @@ export default function Nav(props) {
           ))}
           <li css={{ marginLeft: 'auto' }}>
             <ButtonLink
+              className="navBarCta"
               href={navCtaLink}
               css={{
                 backgroundColor: '#fff',

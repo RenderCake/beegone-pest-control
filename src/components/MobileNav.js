@@ -89,7 +89,7 @@ class MobileNav extends Component {
                     </li>
                   ))}
                 </ul>
-                <ButtonLink href={navCtaLink} secondary>
+                <ButtonLink className="mobileNavCta" href={navCtaLink} secondary>
                   Book Now
                 </ButtonLink>
               </FlyOutMenu>

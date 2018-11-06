@@ -20,6 +20,7 @@ export default function CTA(props) {
     <ContentContainer css={{ textAlign: 'center' }}>
       <SectionHeading headline={headline} copy={copy} />
       <ButtonLink
+        className="ctaCta"
         href={link}
         secondary
         css={{

@@ -71,6 +71,7 @@ export default function Hero(props) {
         </p>
         <div css={{ display: 'inline-block', width: '100%' }}>
           <ButtonLink
+            className="heroCta"
             href={link}
             css={{
               marginTop: '1rem',
