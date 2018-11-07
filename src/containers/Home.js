@@ -16,6 +16,21 @@ const footerData = {
   SocialCopy: 'Follow us on social media',
 }
 
+const pestsData = {
+  pestsTitle: 'Pests we take care of',
+  pestsImages: [
+    { title: 'spider', url: '' },
+    { title: 'mice', url: '' },
+    { title: 'beetles', url: '' },
+    { title: 'yellow jackets', url: '' },
+    { title: 'bedbugs', url: '' },
+    { title: 'earwigs', url: '' },
+    { title: 'rats', url: '' },
+    { title: 'ants', url: '' },
+    { title: 'wasps', url: '' },
+    { title: 'cockroaches', url: '' },
+  ],
+}
 export default () => (
   <SiteData
     render={({
@@ -56,6 +71,7 @@ export default () => (
                   residentialTitle={data.residentialTitle}
                   residentialCopy={data.residentialCopy}
                   residentialServiceList={data.residentialServiceList}
+                  {...pestsData}
                 />
               </section>
               <section id="testimonials" css={{ background: '#f4f4f4' }}>

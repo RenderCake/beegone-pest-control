@@ -8,16 +8,17 @@ import ContentContainer from './ContentContainer'
 import { primaryColor, mq } from './theme'
 import SectionHeading from './SectionHeading'
 import { ServiceListItemCopy } from './theme'
+import ImageGrid from './ImageGrid'
 
 Services.propTypes = {
   headline: string.isRequired,
   copy: string.isRequired,
   commercialTitle: string.isRequired,
   commercialCopy: string.isRequired,
-  commercialServiceList: array.isRequired,
   residentialTitle: string.isRequired,
   residentialCopy: string.isRequired,
-  residentialServiceList: array.isRequired,
+  pestsTitle: string.isRequired,
+  pestsImages: array.isRequired,
 }
 
 const ServiceList = styled('ul')({ display: 'flex', flexWrap: 'wrap', flexDirection: 'row' })
@@ -44,10 +45,10 @@ export default function Services(props) {
     copy,
     commercialTitle,
     commercialCopy,
-    commercialServiceList,
     residentialTitle,
     residentialCopy,
-    residentialServiceList,
+    pestsTitle,
+    pestsImages,
   } = props
 
   return (
@@ -61,13 +62,6 @@ export default function Services(props) {
             </div>
             <h3>{commercialTitle}</h3>
             <p>{commercialCopy}</p>
-            <ServiceList>
-              {commercialServiceList.map(serviceListItem => (
-                <ServiceListItem key={serviceListItem}>
-                  <ServiceListItemCopy>{serviceListItem}</ServiceListItemCopy>
-                </ServiceListItem>
-              ))}
-            </ServiceList>
           </div>
           <div>
             <div>
@@ -75,15 +69,9 @@ export default function Services(props) {
             </div>
             <h3>{residentialTitle}</h3>
             <p>{residentialCopy}</p>
-            <ServiceList>
-              {residentialServiceList.map(serviceListItem => (
-                <ServiceListItem key={serviceListItem}>
-                  <ServiceListItemCopy>{serviceListItem}</ServiceListItemCopy>
-                </ServiceListItem>
-              ))}
-            </ServiceList>
           </div>
         </GridContainer>
+        <ImageGrid images={pestsImages} title={pestsTitle} />
       </ContentContainer>
     </Fragment>
   )
