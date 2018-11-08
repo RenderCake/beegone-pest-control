@@ -7,9 +7,10 @@ import ContentContainer from './ContentContainer'
 Nav.propTypes = {
   navList: array.isRequired,
   navCtaLink: string.isRequired,
+  navCtaLabel: string.isRequired,
 }
 export default function Nav(props) {
-  const { navList, navCtaLink } = props
+  const { navList, navCtaLink, navCtaLabel } = props
   return (
     <nav
       css={{
@@ -72,7 +73,7 @@ export default function Nav(props) {
                 },
               }}
             >
-              Book Now
+              {navCtaLabel}
             </ButtonLink>
           </li>
         </ul>

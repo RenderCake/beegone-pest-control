@@ -22,19 +22,33 @@ LogoText.propTypes = {
   headline: string.isRequired,
   copy: string.isRequired,
   bodyCopy: string.isRequired,
+  imageUrl: string.isRequired,
+  imageDescription: string.isRequired,
 }
 export default function LogoText(props) {
-  const { headline, copy, bodyCopy } = props
+  const {
+    headline, copy, bodyCopy, imageUrl, imageDescription,
+  } = props
   return (
     <Fragment>
       <SectionHeading headline={headline} copy={copy} />
       <ContentContainer>
         <GridContainer>
-          <div>
-            <LogoSVG css={{ width: '100%', height: 'auto', maxWidth: '21rem' }} />
-          </div>
-          <div>
+          <div
+            css={{
+              [mq[1]]: {
+                order: 2,
+              },
+            }}
+          >
             <p>{bodyCopy}</p>
+          </div>
+          <div css={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <img
+              src={imageUrl}
+              alt={imageDescription}
+              css={{ width: '100%', height: 'auto', maxWidth: '350px !important' }}
+            />
           </div>
         </GridContainer>
       </ContentContainer>

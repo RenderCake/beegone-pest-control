@@ -31,6 +31,7 @@ class MobileNav extends Component {
   static propTypes = {
     navList: array.isRequired,
     navCtaLink: string.isRequired,
+    navCtaLabel: string.isRequired,
   }
   state = {
     toggle: false,
@@ -40,7 +41,7 @@ class MobileNav extends Component {
     this.setState(prevState => ({ toggle: !prevState.toggle }))
   }
   render() {
-    const { navList, navCtaLink } = this.props
+    const { navList, navCtaLink, navCtaLabel } = this.props
     const { toggle } = this.state
     const { handleToggle } = this
     return (
@@ -90,7 +91,7 @@ class MobileNav extends Component {
                   ))}
                 </ul>
                 <ButtonLink className="mobileNavCta" href={navCtaLink} secondary>
-                  Book Now
+                  {navCtaLabel}
                 </ButtonLink>
               </FlyOutMenu>
             ))

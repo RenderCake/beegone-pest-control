@@ -2,6 +2,7 @@ import React from 'react'
 import { string } from 'prop-types'
 import { ButtonLink } from './Button'
 import { mq } from './theme'
+import { FaCaretDown } from 'react-icons/fa'
 
 Hero.propTypes = {
   heroHeading: string.isRequired,
@@ -9,99 +10,119 @@ Hero.propTypes = {
   heroButtonLabel: string.isRequired,
   link: string.isRequired,
   phoneNumber: string.isRequired,
-  heroIllustration: string.isRequired,
+  heroImage: string.isRequired,
 }
 export default function Hero(props) {
   const {
-    heroHeading, heroCopy, heroButtonLabel, link, phoneNumber, heroIllustration,
+    heroHeading, heroCopy, heroButtonLabel, link, phoneNumber, heroImage,
   } = props
   return (
-    <div
-      css={{
-        justifyContent: 'space-around',
-        textAlign: 'left',
-        display: 'grid',
-        margin: '0 auto',
-        position: 'relative',
-        padding: '0 8vw',
-        [mq[3]]: {
-          gridTemplateColumns: '40.24390244% 48.7804878%',
-          gridColumnGap: '10.97560976%',
-          padding: '0 4vw',
-        },
-        [mq[5]]: {
-          maxWidth: '76.875rem',
-          padding: 0,
-        },
-      }}
-    >
-      <header
+    <div>
+      <div
         css={{
-          width: '100%',
-          [mq[3]]: {
-            order: 2,
-            flexBasis: '48.7804878%',
+          justifyContent: 'space-around',
+          textAlign: 'left',
+          margin: '0 auto',
+          position: 'relative',
+          padding: '0 8vw',
+          [mq[1]]: {
+            textAlign: 'center',
           },
-          [mq[4]]: {
-            paddingRight: '1.5rem',
+          [mq[3]]: {
+            padding: '0 4vw',
+          },
+          [mq[5]]: {
+            maxWidth: '54rem',
+            padding: 0,
           },
         }}
       >
-        <h1
+        <header
           css={{
-            marginBottom: '2rem',
-            [mq[3]]: {
-              fontSize: '4rem',
-            },
+            width: '100%',
           }}
         >
-          {heroHeading}
-        </h1>
-        <p
-          css={{
-            maxWidth: '44rem',
-            color: '#5b5e6d',
-            lineHeight: 1.5,
-            [mq[3]]: {
-              fontSize: '1.5rem',
-            },
-          }}
-        >
-          {heroCopy}
-        </p>
-        <div css={{ display: 'inline-block', width: '100%' }}>
-          <ButtonLink
-            className="heroCta"
-            href={link}
+          <h1
             css={{
-              marginTop: '1rem',
-              [mq[1]]: {
-                display: 'inline-block',
-                whiteSpace: 'nowrap',
-                flexBasis: 'auto',
-                width: 'auto',
+              marginBottom: '2rem',
+              [mq[3]]: {
+                fontSize: '4rem',
               },
             }}
           >
-            {heroButtonLabel}
-          </ButtonLink>
+            {heroHeading}
+          </h1>
           <p
             css={{
-              textAlign: 'center',
-              [mq[1]]: {
-                textAlign: 'left',
+              color: '#5b5e6d',
+              lineHeight: 1.5,
+              [mq[3]]: {
+                fontSize: '1.5rem',
               },
             }}
           >
-            Or call{' '}
-            <a css={{ fontWeight: 'bold' }} href={`tel:${phoneNumber}`}>
-              {phoneNumber}
-            </a>
+            {heroCopy}
           </p>
-        </div>
-      </header>
-      <div css={{ display: 'grid', alignItems: 'center', justifyContent: 'center' }}>
-        <img src={heroIllustration} alt="hero" />
+          <div css={{ display: 'inline-block', width: '100%' }}>
+            <ButtonLink
+              className="heroCta"
+              href={link}
+              css={{
+                marginTop: '1rem',
+                [mq[1]]: {
+                  display: 'inline-block',
+                  whiteSpace: 'nowrap',
+                  flexBasis: 'auto',
+                  width: 'auto',
+                },
+              }}
+            >
+              {heroButtonLabel}
+            </ButtonLink>
+            <p
+              css={{
+                textAlign: 'center',
+              }}
+            >
+              Or call{' '}
+              <a css={{ fontWeight: 'bold' }} href={`tel:${phoneNumber}`}>
+                {phoneNumber}
+              </a>
+            </p>
+          </div>
+        </header>
+      </div>
+      <div
+        css={{
+          display: 'grid',
+          alignItems: 'center',
+          justifyContent: 'center',
+          opacity: '.60',
+          '&::before': {
+            content: "''",
+            position: 'absolute',
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            left: 0,
+            right: 0,
+            width: 0,
+            height: 0,
+            borderLeft: '80px solid transparent',
+            borderRight: '80px solid transparent',
+            borderTop: '80px solid #fff',
+          },
+        }}
+      >
+        <img
+          css={{
+            objectFit: 'cover',
+            width: '100%',
+            objectPosition: 'center 25%',
+            height: 400,
+          }}
+          src={heroImage}
+          alt="hero"
+        />
       </div>
     </div>
   )

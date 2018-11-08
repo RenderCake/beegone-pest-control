@@ -1,23 +1,24 @@
 import React, { Fragment } from 'react'
 import { FaBuilding, FaHome } from 'react-icons/fa'
 import { string, array } from 'prop-types'
-import styled from 'react-emotion'
+import styled, { css } from 'react-emotion'
 import ReactMarkDown from 'react-markdown'
 
 import ContentContainer from './ContentContainer'
 import { primaryColor, mq } from './theme'
 import SectionHeading from './SectionHeading'
 import { ServiceListItemCopy } from './theme'
+import ImageGrid from './ImageGrid'
 
 Services.propTypes = {
   headline: string.isRequired,
   copy: string.isRequired,
   commercialTitle: string.isRequired,
   commercialCopy: string.isRequired,
-  commercialServiceList: array.isRequired,
   residentialTitle: string.isRequired,
   residentialCopy: string.isRequired,
-  residentialServiceList: array.isRequired,
+  pestsTitle: string.isRequired,
+  pestsImages: array.isRequired,
 }
 
 const ServiceList = styled('ul')({ display: 'flex', flexWrap: 'wrap', flexDirection: 'row' })
@@ -34,9 +35,17 @@ const GridContainer = styled('div')({
     margin: '0 4rem',
   },
   [mq[4]]: {
-    margin: '1rem 11rem',
+    margin: '3rem 10rem 1rem',
   },
 })
+
+const icons = css`
+  fill: ${primaryColor};
+  font-size: 4.3rem;
+  ${mq[3]}: {
+    font-size: 6rem;
+  };
+`
 
 export default function Services(props) {
   const {
@@ -44,10 +53,10 @@ export default function Services(props) {
     copy,
     commercialTitle,
     commercialCopy,
-    commercialServiceList,
     residentialTitle,
     residentialCopy,
-    residentialServiceList,
+    pestsTitle,
+    pestsImages,
   } = props
 
   return (
@@ -55,35 +64,22 @@ export default function Services(props) {
       <SectionHeading headline={headline} copy={copy} />
       <ContentContainer>
         <GridContainer>
-          <div css={{ marginBottom: '2rem' }}>
+          <div css={{ marginBottom: '2rem', textAlign: 'center' }}>
             <div>
-              <FaBuilding css={{ fill: primaryColor, fontSize: '4.3rem' }} />
+              <FaBuilding className={icons} />
             </div>
             <h3>{commercialTitle}</h3>
             <p>{commercialCopy}</p>
-            <ServiceList>
-              {commercialServiceList.map(serviceListItem => (
-                <ServiceListItem key={serviceListItem}>
-                  <ServiceListItemCopy>{serviceListItem}</ServiceListItemCopy>
-                </ServiceListItem>
-              ))}
-            </ServiceList>
           </div>
-          <div>
+          <div css={{ textAlign: 'center' }}>
             <div>
-              <FaHome css={{ fill: primaryColor, fontSize: '4.3rem' }} />
+              <FaHome className={icons} />
             </div>
             <h3>{residentialTitle}</h3>
             <p>{residentialCopy}</p>
-            <ServiceList>
-              {residentialServiceList.map(serviceListItem => (
-                <ServiceListItem key={serviceListItem}>
-                  <ServiceListItemCopy>{serviceListItem}</ServiceListItemCopy>
-                </ServiceListItem>
-              ))}
-            </ServiceList>
           </div>
         </GridContainer>
+        <ImageGrid images={pestsImages} title={pestsTitle} />
       </ContentContainer>
     </Fragment>
   )
