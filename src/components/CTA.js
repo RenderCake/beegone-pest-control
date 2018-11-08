@@ -11,10 +11,11 @@ CTA.propTypes = {
   buttonLabel: string.isRequired,
   link: string.isRequired,
   phoneNumber: string.isRequired,
+  subText: string.isRequired,
 }
 export default function CTA(props) {
   const {
-    headline, copy, buttonLabel, link, phoneNumber,
+    headline, copy, buttonLabel, link, phoneNumber, subText,
   } = props
   return (
     <ContentContainer css={{ textAlign: 'center' }}>
@@ -34,12 +35,13 @@ export default function CTA(props) {
       >
         {buttonLabel}
       </ButtonLink>
-      <p>
+      <p css={{ marginBottom: '1rem' }}>
         Or call {''}
         <a css={{ fontWeight: 'bold', textAlign: 'center' }} href={`tel:${phoneNumber}`}>
           {phoneNumber}
         </a>
       </p>
+      <p css={{ marginTop: 0 }}>{subText}</p>
     </ContentContainer>
   )
 }

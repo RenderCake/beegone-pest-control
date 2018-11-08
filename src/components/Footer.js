@@ -12,7 +12,7 @@ import { string, array } from 'prop-types'
 import { primaryColor, mq } from './theme'
 import styled from 'react-emotion'
 import ContentContainer from './ContentContainer'
-import BeeLogoSVG from './BeeLogoSVG'
+import LogoSVG from './LogoSVG'
 
 const UnderlinedAnchor = styled('a')({
   borderBottom: `2px solid ${primaryColor}`,
@@ -33,6 +33,7 @@ const SocialListItem = styled('li')({
 Footer.propTypes = {
   navList: array.isRequired,
   ctaLink: string.isRequired,
+  ctaLabel: string.isRequired,
   phoneNumber: string.isRequired,
   email: string.isRequired,
   contactCopy: string.isRequired,
@@ -46,6 +47,7 @@ export default function Footer(props) {
   const {
     navList,
     ctaLink,
+    ctaLabel,
     phoneNumber,
     email,
     contactCopy,
@@ -74,7 +76,15 @@ export default function Footer(props) {
           }}
         >
           <a href="/">
-            <BeeLogoSVG css={{ width: 54 }} />
+            <LogoSVG
+              css={{
+                width: '8rem',
+                height: 'auto',
+                [mq[3]]: {
+                  width: '12rem',
+                },
+              }}
+            />
           </a>
           <div
             css={{
@@ -110,7 +120,7 @@ export default function Footer(props) {
                 ))}
                 <li css={{ flex: '1 1 50%' }}>
                   <UnderlinedAnchor className="footerCta" href={ctaLink}>
-                    Buy Now
+                    {ctaLabel}
                   </UnderlinedAnchor>
                 </li>
               </ul>

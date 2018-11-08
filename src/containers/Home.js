@@ -51,14 +51,16 @@ export default () => (
               <title>{siteTitle}</title>
             </Head>
             <main>
-              <section css={{ paddingTop: '4rem', [mq[1]]: { paddingTop: '7rem' } }}>
+              <section
+                css={{ paddingTop: '4rem', paddingBottom: 0, [mq[1]]: { paddingTop: '7rem' } }}
+              >
                 <Hero
                   heroHeading={data.heroHeading}
                   heroCopy={data.heroCopy}
                   heroButtonLabel={data.heroCta.fields.buttonLabel}
                   link={data.heroCta.fields.link}
                   phoneNumber={data.phoneNumber}
-                  heroIllustration={data.heroImage.fields.file.url}
+                  heroImage={data.heroImage.fields.file.url}
                 />
               </section>
               <section id="services">
@@ -71,7 +73,8 @@ export default () => (
                   residentialTitle={data.residentialTitle}
                   residentialCopy={data.residentialCopy}
                   residentialServiceList={data.residentialServiceList}
-                  {...pestsData}
+                  pestsTitle={data.pestsTitle}
+                  pestsImages={data.pests}
                 />
               </section>
               <section id="testimonials" css={{ background: '#f4f4f4' }}>
@@ -86,6 +89,8 @@ export default () => (
                   headline={data.whyUsHeadline}
                   copy={data.whyUsSubHeadline}
                   bodyCopy={data.whyUsCopy}
+                  imageUrl={data.whyUsImage.fields.file.url}
+                  imageDescription={data.whyUsImage.fields.description}
                 />
               </section>
               <section id="guarantee">
@@ -102,6 +107,7 @@ export default () => (
                   buttonLabel={data.cta.fields.buttonLabel}
                   link={data.cta.fields.link}
                   phoneNumber={phoneNumber}
+                  subText={data.ctaSubText}
                 />
               </section>
             </main>
@@ -110,6 +116,7 @@ export default () => (
               email={email}
               phoneNumber={phoneNumber}
               ctaLink={data.cta.fields.link}
+              ctaLabel={data.cta.fields.buttonLabel}
               facebookLink={facebookLink}
               twitterLink={twitterLink}
               linkedinLink={linkedInLink}
