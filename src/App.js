@@ -77,7 +77,7 @@ const isBrowser = typeof window !== 'undefined'
 
 const App = () => (
   <SiteData
-    render={({ siteData: { navCtaLink } }) => (
+    render={({ siteData: { navCtaLink, navCtaLabel } }) => (
       <Router>
         <AppStyles>
           <header>
@@ -87,11 +87,13 @@ const App = () => (
               <MobileNav
                 navList={['Services', 'Testimonials', 'Why Us', 'Guarantee']}
                 navCtaLink={navCtaLink}
+                navCtaLabel={navCtaLabel}
               />
             ) : (
               <Nav
                 navList={['Services', 'Testimonials', 'Why Us', 'Guarantee']}
                 navCtaLink={navCtaLink}
+                navCtaLabel={navCtaLabel}
               />
             )}
           </header>
